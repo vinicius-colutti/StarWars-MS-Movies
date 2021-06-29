@@ -5,7 +5,9 @@ import com.colutti.starwars.movies.dto.movie.response.CharacterResponse
 import com.colutti.starwars.movies.dto.movie.response.MovieResponse
 import com.colutti.starwars.movies.model.CharactersRelationship
 import com.colutti.starwars.movies.model.Movie
+import org.springframework.stereotype.Component
 
+@Component
 class MovieConverter {
 
     fun requestToMovie(movieRequest: MovieRequest): Movie{

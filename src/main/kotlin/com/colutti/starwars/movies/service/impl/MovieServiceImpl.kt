@@ -16,10 +16,11 @@ class MovieServiceImpl: MovieService {
     lateinit var movieRepository: MovieRepository
     @Autowired
     lateinit var charactersRelationshipRepository: CharactersRelationshipRepository
+    @Autowired
+    lateinit var movieConverter: MovieConverter
 
     override fun create(movieRequest: MovieRequest) {
-        var movieConverter = MovieConverter()
-        var movieToSave = movieConverter.requestToMovie(movieRequest)
+        var movieToSave = this.movieConverter.requestToMovie(movieRequest)
         var savedMovie = movieRepository.save(movieToSave)
         movieToSave.characters.map { char ->
             char.movie = savedMovie
@@ -28,8 +29,7 @@ class MovieServiceImpl: MovieService {
     }
 
     override fun getAll(): List<MovieResponse> {
-       var movieConverter = MovieConverter()
-       var movieList =  movieConverter.movieToResponse(movieRepository.findAll().toList())
+       var movieList =  this.movieConverter.movieToResponse(movieRepository.findAll().toList())
        println(movieList)
        return movieList
     }
