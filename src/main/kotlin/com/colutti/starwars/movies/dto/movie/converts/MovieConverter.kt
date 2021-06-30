@@ -16,12 +16,18 @@ class MovieConverter {
         return movie
     }
 
-    fun movieToResponse(movie: List<Movie>): List<MovieResponse>{
+    fun movieToListResponse(movie: List<Movie>): List<MovieResponse>{
         var movieReponseList: List<MovieResponse> = movie.map { mapMovie ->
             MovieResponse(mapMovie.id, mapMovie.name, mapMovie.release_date, mapMovie.image_url,
                     mapMovie.characters.map { char -> CharacterResponse(char.character_id, "") })
         };
         return movieReponseList
+    }
+
+    fun movieToResponse(movie: Movie): MovieResponse{
+        var movieReponse = MovieResponse(movie.id, movie.name, movie.release_date, movie.image_url,
+        movie.characters.map { char -> CharacterResponse(char.character_id, "") })
+        return movieReponse
     }
 
 }
