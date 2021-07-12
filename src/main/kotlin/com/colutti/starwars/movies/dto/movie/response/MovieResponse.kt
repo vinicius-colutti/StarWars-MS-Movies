@@ -9,6 +9,6 @@ data class MovieResponse (
     var release_date: Date,
     var image_url: String,
 
-    @JsonProperty("characters")
-    var characterResponse: List<CharacterResponse>
+    @JsonProperty("personages")
+    var personageResponse: List<PersonageResponse>
 )

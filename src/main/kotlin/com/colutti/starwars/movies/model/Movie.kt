@@ -19,9 +19,9 @@ data class Movie (
 
      var image_url: String = "",
 
-     @JsonProperty("characters")
+     @JsonProperty("personages")
      @OneToMany(mappedBy = "movie", cascade = arrayOf(CascadeType.ALL), fetch = FetchType.EAGER)
-     var characters: List<CharactersRelationship> = emptyList()
+     var personages: List<PersonageRelationship> = emptyList()
 
 )
 

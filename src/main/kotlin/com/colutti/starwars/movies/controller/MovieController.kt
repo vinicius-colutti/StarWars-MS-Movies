@@ -40,7 +40,7 @@ class MovieController {
         if(service.getById(id) != null){
             status = HttpStatus.OK
             service.update(id, movieRequest)
-            respostaJson = ResponseDefault("OK", Date())
+            respostaJson = ResponseDefault("Updated movie!", Date())
         }
         return ResponseEntity(respostaJson, status)
     }

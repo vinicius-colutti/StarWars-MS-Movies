@@ -8,6 +8,6 @@ data class MovieRequest (
     var release_date: Date,
     var image_url: String,
 
-    @JsonProperty("characters")
-    var characters: List<CharacterRequest>
+    @JsonProperty("personages")
+    var personages: List<PersonageRequest>
 )
