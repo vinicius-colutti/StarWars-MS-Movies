@@ -19,7 +19,7 @@ class MovieConverter {
     fun movieToListResponse(movie: List<Movie>): List<MovieResponse>{
         var movieReponseList: List<MovieResponse> = movie.map { mapMovie ->
             MovieResponse(mapMovie.id, mapMovie.name, mapMovie.release_date, mapMovie.image_url,
-                    mapMovie.personages.map { char -> PersonageResponse(char.personage_id, "", "", "", "", "", "") })
+                    mapMovie.personages.map { char -> PersonageResponse(char.personage_id) })
         };
         return movieReponseList
     }
